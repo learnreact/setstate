@@ -1,6 +1,6 @@
 {
   "name": "setstate",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Set local state in a React.Component",
   "main": "index.js",
   "repository": "https://github.com/chantastic/setstate.git",
