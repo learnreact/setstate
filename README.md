@@ -3,6 +3,11 @@ Set local state in a React.Component
 
 [setstate on github](https://github.com/learnreact/setstate)
 
+## Caveat
+The library's a joke; the documentation is real. [context](https://twitter.com/chantastic/status/885381881448980480)
+
+All this stuff is in `react`.
+
 ## Installation
 ```js
 yarn add react setstate
