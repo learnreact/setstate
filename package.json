@@ -1,0 +1,12 @@
+{
+  "name": "setstate",
+  "version": "1.0.0",
+  "description": "Set local state in a React.Component",
+  "main": "index.js",
+  "repository": "https://github.com/chantastic/setstate.git",
+  "author": "Michael Chan <mijoch@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "rollup main.js --format umd --name \"setState\" --output index.js"
+  }
+}
