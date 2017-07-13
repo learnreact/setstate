@@ -1,6 +1,8 @@
 # setstate
 Set local state in a React.Component
 
+[setstate on github](https://github.com/learnreact/setstate)
+
 ## Installation
 ```js
 yarn add react setstate
@@ -22,46 +24,53 @@ class Counter extends React.Component {
   }
 
   render() {
-    <div>
-      <h1>{this.state.count}</h1>
+    return (
+      <div>
+        <h1>{this.state.count}</h1>
 
-      <button
-        type="button"
-        onClick={() => this.setState(({ count }) => ({ count: count + 1 }))}
-      >+</button>
+        <button
+          type="button"
+          onClick={() => this.setState(({ count }) => ({ count: count + 1 }))}
+        >+</button>
 
-      <button
-        type="button"
-        onClick={() => this.setState(({ count }) => ({ count: count - 1 }))}
-      >+</button>
-    </div>;
+        <button
+          type="button"
+          onClick={() => this.setState(({ count }) => ({ count: count - 1 }))}
+        >+</button>
+      </div>
+    );
   }
 }
 
 ```
 
 ## Use in Create React App
-`create-react-app` ships with the [`transform-class-properties`](https://babeljs.io/docs/plugins/transform-class-properties/) transform installed.
+`create-react-app` ships with  [`transform-class-properties`](https://babeljs.io/docs/plugins/transform-class-properties/) installed.
 
 This can make working with local state faster and less ceremonious.
 
 ```js
 class Counter extends React.Component {
   // don't mess with the constructor to initialize state.
+
   state = { count: 0 }
 
   // create instance methods for better perf and re-use.
+
   increment = () => this.setState(({ count }) => ({ count: count + 1 }))
   decrement = () => this.setState(({ count }) => ({ count: count - 1 }))
 
   // the clean code you've always dreamed of.
-  render() {
-    <div>
-      <h1>{this.state.count}</h1>
 
-      <button type="button" onClick={this.increment}>+</button>
-      <button type="button" onClick={this.decrement}>+</button>
-    </div>;
+  render() {
+    return (
+      <div>
+        <h1>{this.state.count}</h1>
+
+        <button type="button" onClick={this.increment}>+</button>
+        <button type="button" onClick={this.decrement}>+</button>
+      </div>
+    );
   }
 }
 ```
@@ -71,13 +80,13 @@ class Counter extends React.Component {
 I know that sounds complicated but it's not.
 
 ### Object form
-This is best used when you setting a new value or blowing away a previous value:
+This is best used when setting a new value or blowing away a previous value:
 
 ```js
 this.setState({ name: "Michael" })
 ```
 
-This is what it looks like in response to an input event.
+Here's what it looks like in response to an input's change event.
 
 ```js
 // this.state.name gets replaced for every onChange
@@ -89,7 +98,7 @@ This is what it looks like in response to an input event.
 ```
 
 ### Function form
-This is best used when you transitioning existing state values (like the counter above).
+This is best used when transitioning existing state (like the counter above).
 
 ```js
 this.setState(previousState => ({ count: previousState.count + 1 }));
@@ -108,8 +117,7 @@ This is what it looks like in response to a button press:
 ### Optional callback
 `setState` is asynchronous.
 
-You can use the optional callback to.
-It'll fire after state is updated.
+You can use the optional callback to fire code after state is updated.
 
 ```js
 this.setState(
@@ -118,17 +126,18 @@ this.setState(
 )
 ```
 
-This is handy but not as useful as when combined with React's built-in lifecycle events.
+This is handy but not as powerful as using `setstate` with a React component's lifecycle methods.
 
 ### Works with React's lifecycle methods
 ```js
 class Counter extends React.Component {
+  // look, ma! no callbacks.
   componentDidUpdate(prevProps, prevousState) {
     console.log("current state: ", this.state)
     console.log("previous state: ", previousState)
   }  
 
-  render() { /* ... */ }
+  render() { return <div>{this.state.count}</div> }
 }
 ```
 
