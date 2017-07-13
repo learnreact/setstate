@@ -132,7 +132,7 @@ This is handy but not as powerful as using `setstate` with a React component's l
 ```js
 class Counter extends React.Component {
   // look, ma! no callbacks.
-  componentDidUpdate(prevProps, prevousState) {
+  componentDidUpdate(prevProps, previousState) {
     console.log("current state: ", this.state)
     console.log("previous state: ", previousState)
   }  
