@@ -3,7 +3,7 @@
   "version": "1.0.2",
   "description": "Set local state in a React.Component",
   "main": "index.js",
-  "repository": "https://github.com/chantastic/setstate.git",
+  "repository": "https://github.com/learnreact/setstate.git",
   "author": "Michael Chan <mijoch@gmail.com>",
   "license": "MIT",
   "scripts": {
